@@ -179,13 +179,14 @@ class _HomeScreenState extends State<HomeScreen> {
   }
   Widget PopularRestaurants() {
     return Container(
-      height: 800,
+      height: 820,
       child: ListView.builder(
          physics: NeverScrollableScrollPhysics(),
           itemCount: 3,
           itemBuilder: (context, index) {
             return Column(
                 children: [
+                  SizedBox(height: 30,),
                   Container(
                     height: 200,
                     width: MediaQuery
