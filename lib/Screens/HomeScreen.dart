@@ -1,6 +1,7 @@
 import 'package:fahadshabir/Colors/Config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -33,18 +34,18 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(width: MediaQuery.of(context).size.width,),
 
             Container(
-              width: MediaQuery.of(context).size.width*0.8,
+              width: MediaQuery.of(context).size.width*0.9,
               alignment: Alignment.centerLeft,
               child: Text("Delivering to",style: TextStyle(color: Colors.grey),),
             ),
 
             Container(
-              width: MediaQuery.of(context).size.width*0.8,
+              width: MediaQuery.of(context).size.width*0.95,
               alignment: Alignment.centerLeft,
               child: DropdownButton(
                 value: deliverTo,
                 elevation: 0,
-                icon: Icon(Icons.keyboard_arrow_down),
+                icon: Icon(Icons.keyboard_arrow_down,color: Config.mainColor,),
                 items: [
                   DropdownMenuItem(child: Text("Current Location"),value: "current location",),
                   DropdownMenuItem(child: Text("Address 1"),value: "Address 1",),
@@ -55,23 +56,96 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               ),
             ),
-
+            SizedBox(height: 20,),
             Container(
               alignment: Alignment.center,
               width: MediaQuery.of(context).size.width*0.8,
               child: const TextField(
                 decoration: InputDecoration(
-                  hintText: "Search",
-                  prefixIcon: Icon(Icons.search),
-                  border: InputBorder.none
+                    hintText: "Search food",
+                    prefixIcon: Icon(Icons.search),
+                    border: InputBorder.none
                 ),
               ),
             ),
+            SizedBox(height: 30,),
+            Container(
+              height: 150,
+              child:ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 5,
+                itemBuilder:(context,index){
+                  return Padding(
+                    padding:EdgeInsets.symmetric(horizontal: 10),
+                    child: Column(
+                      children: [
+                      Container(
+                        height: 80,
+                        width: 80,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage("assets/burger.png"),
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: BorderRadius.circular(10)
+                        ),
+                      ),
+                        SizedBox(height: 20,),
+                        Text("Offer",style: TextStyle(fontWeight: FontWeight.bold),),
+                      ],
+                    ),
+                  );
+                } ,
+              ) ,
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 10),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Popular Restaurants",style: TextStyle(fontSize: 20,),),
+                        Text("view all",style: TextStyle(fontSize: 20,color: Config.mainColor),),
+
+                      ],
+                    ),
+                  ),
+                  PopularRestaurants(),
+
 
 
           ],
         ),
       ),
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 10),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("Most Popular",style: TextStyle(fontSize: 20,),),
+                        Text("view all",style: TextStyle(fontSize: 20,color: Config.mainColor),),
+
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+                  MostPopular(),
+
+
+
+                ],
+              ),
+            ),
+      ]
+    ),
+    ),
       bottomNavigationBar:BottomNavigationBar(
         selectedItemColor:Config.mainColor,
         unselectedItemColor: Colors.grey,
@@ -100,6 +174,108 @@ class _HomeScreenState extends State<HomeScreen> {
               label: "More"
           ),
         ],
+      ),
+    );
+  }
+  Widget PopularRestaurants() {
+    return Container(
+      height: 800,
+      child: ListView.builder(
+         physics: NeverScrollableScrollPhysics(),
+          itemCount: 3,
+          itemBuilder: (context, index) {
+            return Column(
+                children: [
+                  Container(
+                    height: 200,
+                    width: MediaQuery
+                        .of(context)
+                        .size
+                        .width,
+                    child: Image.asset("assets/pizza.png", fit: BoxFit.cover,),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 10),
+                    alignment: Alignment.centerLeft,
+                    width: MediaQuery
+                        .of(context)
+                        .size
+                        .width,
+                    child: Text("Minute by tuk tuk", style: TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 18),),
+                  ),
+                  Container(
+                    width: MediaQuery
+                        .of(context)
+                        .size
+                        .width,
+                    margin: EdgeInsets.symmetric(horizontal: 10),
+                    alignment: Alignment.centerLeft,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Icon(Icons.star, color: Config.mainColor,),
+                        Text("(124 ratings) cafe",
+                          style: TextStyle(color: Colors.grey),),
+                        Icon(Icons.circle, color: Config.mainColor, size: 5,),
+                        Text("Western food",
+                          style: TextStyle(color: Colors.grey),),
+                      ],
+                    ),
+                  )
+                ]
+            );
+          }
+      ),
+    );
+  }
+
+  Widget MostPopular()
+  {
+    return Container(
+      height: 300,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+          itemBuilder: (context,index){
+            return Column(
+                children: [
+                  SizedBox(height: 30,),
+                  Container(
+                    height: 200,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(
+                        image: AssetImage("assets/pizza.png"),
+                        fit: BoxFit.cover
+                      )
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 10),
+                    alignment:Alignment.centerLeft,
+                    width: MediaQuery.of(context).size.width,
+                    child: Text("Minute by tuk tuk",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    margin: EdgeInsets.symmetric(horizontal: 10),
+                    alignment: Alignment.centerLeft ,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+
+                        Text("cafe",style: TextStyle(color: Colors.grey),),
+                        Icon(Icons.circle,color: Config.mainColor,size: 5,),
+                        Text("Western food",style: TextStyle(color: Colors.grey),),
+                        Icon(Icons.star,color: Config.mainColor,),
+                        Text("124",style: TextStyle(color: Colors.grey),),
+                      ],
+                    ),
+                  )
+                ]
+            );
+          }
       ),
     );
   }

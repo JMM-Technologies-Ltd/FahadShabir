@@ -1,9 +1,12 @@
 import 'package:fahadshabir/Colors/Config.dart';
+import 'package:fahadshabir/Screens/FindFoodScreen.dart';
+import 'package:fahadshabir/Screens/HomeScreen.dart';
 import 'package:fahadshabir/Widgets/mButton.dart';
 import 'package:fahadshabir/Widgets/mIconButton.dart';
 import 'package:fahadshabir/Widgets/mTextField.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoginScreen extends StatelessWidget {
   final txtEmail=TextEditingController();
@@ -30,7 +33,12 @@ class LoginScreen extends StatelessWidget {
             mTextField(hint: "Password", controller: txtPass, ispass: true),
 
             const SizedBox(height: 20,),
-            mButton(title: "Login",),
+            InkWell(
+              onTap: (){
+                Get.offAll(()=>FindFood());
+              },
+                child: mButton(title: "Login",)
+            ),
             const SizedBox(height: 20,),
             Container(
               alignment: Alignment.center,
