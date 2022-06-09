@@ -236,44 +236,49 @@ class _HomeScreenState extends State<HomeScreen> {
       height: 300,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
+          itemCount: 5,
           itemBuilder: (context,index){
-            return Column(
-                children: [
-                  SizedBox(height: 30,),
-                  Container(
-                    height: 200,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                        image: AssetImage("assets/pizza.png"),
-                        fit: BoxFit.cover
-                      )
+            return Container(
+              width: 200,
+              margin: EdgeInsets.symmetric(horizontal: 10),
+              child: Column(
+                  children: [
+                    SizedBox(height: 30,),
+                    Container(
+                      height: 200,
+                      width: 200,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        image: DecorationImage(
+                          image: AssetImage("assets/pizza.png"),
+                          fit: BoxFit.cover
+                        )
+                      ),
                     ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10),
-                    alignment:Alignment.centerLeft,
-                    width: MediaQuery.of(context).size.width,
-                    child: Text("Minute by tuk tuk",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    margin: EdgeInsets.symmetric(horizontal: 10),
-                    alignment: Alignment.centerLeft ,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 10),
+                      alignment:Alignment.centerLeft,
+                      width: MediaQuery.of(context).size.width,
+                      child: Text("Minute by tuk tuk",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      margin: EdgeInsets.symmetric(horizontal: 10),
+                      alignment: Alignment.centerLeft ,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
 
-                        Text("cafe",style: TextStyle(color: Colors.grey),),
-                        Icon(Icons.circle,color: Config.mainColor,size: 5,),
-                        Text("Western food",style: TextStyle(color: Colors.grey),),
-                        Icon(Icons.star,color: Config.mainColor,),
-                        Text("124",style: TextStyle(color: Colors.grey),),
-                      ],
-                    ),
-                  )
-                ]
+                          Text("cafe",style: TextStyle(color: Colors.grey),),
+                          Icon(Icons.circle,color: Config.mainColor,size: 5,),
+                          Text("Western food",style: TextStyle(color: Colors.grey),),
+                          Icon(Icons.star,color: Config.mainColor,),
+                          Text("124",style: TextStyle(color: Colors.grey),),
+                        ],
+                      ),
+                    )
+                  ]
+              ),
             );
           }
       ),
