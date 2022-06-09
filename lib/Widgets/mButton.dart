@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../Colors/Config.dart';
 
 class mButton extends StatelessWidget {
-  const mButton({Key? key}) : super(key: key);
+  String title;
+  mButton({required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class mButton extends StatelessWidget {
           color: Config.mainColor,
           borderRadius: BorderRadius.circular(30)
       ),
-      child: Center(child: Text("Login",style: TextStyle(color: Colors.white),),),
+      child: Center(child: Text(title,style: TextStyle(color: Colors.white),),),
     );
   }
 }

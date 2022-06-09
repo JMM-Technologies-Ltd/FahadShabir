@@ -1,3 +1,5 @@
+import 'package:fahadshabir/Screens/FindFoodScreen.dart';
+import 'package:fahadshabir/Screens/HomeScreen.dart';
 import 'package:fahadshabir/Screens/LoginScreen.dart';
 import 'package:fahadshabir/Screens/SplashScreen.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
         ),
         primarySwatch: Colors.orange
       ),
-      home: LoginScreen(),
+      home: HomeScreen(),
       );
   }
 }

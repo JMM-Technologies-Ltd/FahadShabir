@@ -30,7 +30,7 @@ class LoginScreen extends StatelessWidget {
             mTextField(hint: "Password", controller: txtPass, ispass: true),
 
             const SizedBox(height: 20,),
-            mButton(),
+            mButton(title: "Login",),
             const SizedBox(height: 20,),
             Container(
               alignment: Alignment.center,
@@ -46,6 +46,17 @@ class LoginScreen extends StatelessWidget {
             mIconButton(color: Config.fbColor,title: "Login with facebook",icon: "assets/f.png",),
             const SizedBox(height: 20,),
             mIconButton(color: Config.googleColor,title: "Login with Google",icon: "assets/g.png",),
+            const SizedBox(height: 30,),
+            Container(
+              alignment: Alignment.center,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Don't have an account?",style: TextStyle(color: Colors.grey),),
+                  Text("Signup",style: TextStyle(color: Config.mainColor,fontWeight: FontWeight.bold),),
+                ],
+              )
+            ),
           ],
         ),
       ),
