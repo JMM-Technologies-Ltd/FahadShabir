@@ -1,3 +1,6 @@
+import 'package:fahadshabir/Colors/Config.dart';
+import 'package:fahadshabir/Widgets/mButton.dart';
+import 'package:fahadshabir/Widgets/mIconButton.dart';
 import 'package:fahadshabir/Widgets/mTextField.dart';
 import 'package:flutter/material.dart';
 
@@ -24,6 +27,22 @@ class LoginScreen extends StatelessWidget {
             mTextField(hint: "Email", controller: txtEmail, ispass: false),
             const SizedBox(height: 20,),
             mTextField(hint: "Password", controller: txtPass, ispass: true),
+
+            const SizedBox(height: 20,),
+            mButton(),
+            const SizedBox(height: 20,),
+            Container(
+              alignment: Alignment.center,
+              child: Text("Forgot your password?",style: TextStyle(color: Colors.grey),),
+            ),
+
+            const SizedBox(height: 30,),
+            Container(
+              alignment: Alignment.center,
+              child: Text("or Login with",style: TextStyle(color: Colors.grey),),
+            ),
+            const SizedBox(height: 20,),
+            mIconButton(),
           ],
         ),
       ),

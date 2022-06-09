@@ -10,11 +10,11 @@ class mTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding:const EdgeInsets.symmetric(horizontal: 20),
+      padding:const EdgeInsets.symmetric(horizontal: 20,vertical: 5),
       width: MediaQuery.of(context).size.width*0.8,
       decoration: BoxDecoration(
-          color: Colors.deepOrangeAccent.withOpacity(0.1),
-          borderRadius: BorderRadius.circular(20)
+          color: Color(0xffF2F2F2),
+          borderRadius: BorderRadius.circular(30)
       ),
       child:  TextField(
         controller: controller,
