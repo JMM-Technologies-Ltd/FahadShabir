@@ -2,8 +2,13 @@ import 'package:fahadshabir/Colors/Config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  String deliverTo="current location";
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +26,51 @@ class HomeScreen extends StatelessWidget {
             ),
           )
         ],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(width: MediaQuery.of(context).size.width,),
+
+            Container(
+              width: MediaQuery.of(context).size.width*0.8,
+              alignment: Alignment.centerLeft,
+              child: Text("Delivering to",style: TextStyle(color: Colors.grey),),
+            ),
+
+            Container(
+              width: MediaQuery.of(context).size.width*0.8,
+              alignment: Alignment.centerLeft,
+              child: DropdownButton(
+                value: deliverTo,
+                elevation: 0,
+                icon: Icon(Icons.keyboard_arrow_down),
+                items: [
+                  DropdownMenuItem(child: Text("Current Location"),value: "current location",),
+                  DropdownMenuItem(child: Text("Address 1"),value: "Address 1",),
+                  DropdownMenuItem(child: Text("Address 2"),value: "Address 2",),
+                ], onChanged: (value) {
+                  deliverTo=value.toString();
+                  setState((){});
+              },
+              ),
+            ),
+
+            Container(
+              alignment: Alignment.center,
+              width: MediaQuery.of(context).size.width*0.8,
+              child: const TextField(
+                decoration: InputDecoration(
+                  hintText: "Search",
+                  prefixIcon: Icon(Icons.search),
+                  border: InputBorder.none
+                ),
+              ),
+            ),
+
+
+          ],
+        ),
       ),
       bottomNavigationBar:BottomNavigationBar(
         selectedItemColor:Config.mainColor,
