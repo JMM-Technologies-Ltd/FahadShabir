@@ -4,7 +4,7 @@ import '../Colors/Config.dart';
 
 class mIconButton extends StatelessWidget {
   String title;
-  var icon;
+  String icon;
   Color color;
   mIconButton({required this.title,required this.icon,required this.color});
   @override
@@ -19,7 +19,11 @@ class mIconButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Icon(icon,color: Colors.white,),
+          Container(
+            height: 20,
+            width: 20,
+            child: Image.asset(icon,fit: BoxFit.fill,),
+          ),
            Text(title,style: TextStyle(color: Colors.white,letterSpacing: 2),),
         ],
       ),

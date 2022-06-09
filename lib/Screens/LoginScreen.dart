@@ -2,6 +2,7 @@ import 'package:fahadshabir/Colors/Config.dart';
 import 'package:fahadshabir/Widgets/mButton.dart';
 import 'package:fahadshabir/Widgets/mIconButton.dart';
 import 'package:fahadshabir/Widgets/mTextField.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -42,9 +43,9 @@ class LoginScreen extends StatelessWidget {
               child: Text("or Login with",style: TextStyle(color: Colors.grey),),
             ),
             const SizedBox(height: 20,),
-            mIconButton(color: Config.fbColor,title: "Login with facebook",icon: Icons.facebook_rounded,),
+            mIconButton(color: Config.fbColor,title: "Login with facebook",icon: "assets/f.png",),
             const SizedBox(height: 20,),
-            mIconButton(color: Config.fbColor,title: "Login with facebook",icon: Icons.facebook_rounded,),
+            mIconButton(color: Config.googleColor,title: "Login with Google",icon: "assets/g.png",),
           ],
         ),
       ),
